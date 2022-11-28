@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  numconverter:
+    container_name: gonumconverter
+    build: .
+    ports:
+      - 8000:8000
+    restart: on-failure
