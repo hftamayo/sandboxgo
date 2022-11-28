@@ -1,4 +1,4 @@
-# Start from golang base image
+# based on the recommendations of Peter Hellberg
 FROM golang:alpine as builder
 
 WORKDIR /.
