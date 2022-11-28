@@ -1,10 +1,9 @@
-version: '3'
+version: '3.9'
 
 services:
-
   numconverter:
     container_name: gonumconverter
-    build: .
+    build:
+      dockerfile: Dockerfile
     ports:
       - 8000:8000
-    restart: on-failure
