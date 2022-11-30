@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"numconverter/data"
+	"numconverter/src/data"
 )
 
 func main() {
