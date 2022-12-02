@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
-	"httprouter"
+	"github.com/julienschmidt/httprouter"
 )
 //this is a function to execute a system command and return output
 func getCommandOutput(command string, arguments ...string) string {
@@ -19,16 +19,16 @@ func getCommandOutput(command string, arguments ...string) string {
 	if err != nil {
 		log.Fatal(fmt.Sprint(err) + ": " + stderr.String())
 	}
-	err = cmd.Waint()
+	err = cmd.Wait()
 	if err != nil {
 		log.Fatal(fmt.Sprint(err) + ": " + stderr.String())
 	}
 	return out.String()
 }
 func goVersion(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	fmt.Fprintf(w, getCommandOutput("/usr/local/bin/go", "version"))
+	fmt.Fprintf(w, getCommandOutput("/usr/local/go/bin/go", "version"))
 }
-func getFileContent(w, http.ResponseWriter, r *http.Request, params httprouter.Params) {
+func getFileContent(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
 	fmt.Fprintf(w, getCommandOutput("/bin/cat", params.ByName("name")))
 }
 func main() {
