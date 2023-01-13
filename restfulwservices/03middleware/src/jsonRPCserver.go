@@ -16,10 +16,16 @@ type Args struct {
 }
 
 // Book struct holds Book JSON structure
+
 type Book struct {
 	Id string `"json:string,omitempty"`
 	Name string `"json:name,omitempty"`
 	Author string `"json:author,omitempty"`
+}
+
+//esta estructura me la sugirieron en slack para serializar el json
+type BookList struct {
+	Books []Book `json:"books"`
 }
 
 type JSONServer struct{}
